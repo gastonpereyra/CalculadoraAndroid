@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">CalculadoraAndroid</string>
+    <string name="app_name">Calculadora Android</string>
+    <string name="screen">Introduzca su Calculo</string>
+    <string name="btn_00">0</string>
+    <string name="btn_01">1</string>
+    <string name="btn_02">2</string>
+    <string name="btn_03">3</string>
+    <string name="btn_04">4</string>
+    <string name="btn_05">5</string>
+    <string name="btn_06">6</string>
+    <string name="btn_07">7</string>
+    <string name="btn_08">8</string>
+    <string name="btn_09">9</string>
+    <string name="btn_dot">.</string>
+    <string name="btn_sum">+</string>
+    <string name="btn_neg">-</string>
+    <string name="btn_mult">x</string>
+    <string name="btn_div">/</string>
+    <string name="btn_back">DEL</string>
+    <string name="btn_clear">C</string>
+    <string name="btn_equal">=</string>
+
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btn_size">70dp</dimen>
+    <dimen name="btn_sizeDouble">140dp</dimen>
+    <dimen name="btn_sizeTriple">210dp</dimen>
+    <dimen name="btn_margin">1dp</dimen>
+    <dimen name="btn_font">28sp</dimen>
+</resources>

@@ -7,5 +7,46 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <!-- Button -->
+    <!-- Button Size-->
+    <style name="Btn_size">
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <!--<item name="android:layout_height">@dimen/btn_size</item>-->
+        <item name="android:layout_margin">@dimen/btn_margin</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:autoSizeMinTextSize">12sp</item>
+        <item name="android:autoSizeMaxTextSize">38sp</item>
+        <item name="android:autoSizeStepGranularity">2sp</item>
+        <!--<item name="android:textSize">@dimen/btn_font</item>-->
+    </style>
+    <style name="Btn_simple" parent="Btn_size">
+        <item name="android:layout_columnWeight">1</item>
+        <!--<item name="android:layout_width">@dimen/btn_size</item>-->
+    </style>
+    <style name="Btn_double" parent="Btn_size">
+        <!--<item name="android:layout_width">@dimen/btn_sizeDouble</item>-->
+        <item name="android:layout_columnWeight">2</item>
+        <item name="android:layout_columnSpan">2</item>
+    </style>
+    <style name="Btn_triple" parent="Btn_size">
+        <!--<item name="android:layout_width">@dimen/btn_sizeTriple</item>-->
+        <item name="android:layout_columnWeight">3</item>
+        <item name="android:layout_columnSpan">3</item>
+    </style>
+    <!-- Button Color -->
+    <style name="Btn" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">@color/colorPadFont</item>
+    </style>
+    <style name="Btn_pad" parent="Btn">
+        <item name="colorButtonNormal">@color/colorPadNum</item>
+        <!-- <item name="colorControlHighlight">@color/colorAccent</item> -->
+    </style>
+    <style name="Btn_Op" parent="Btn">
+        <item name="colorButtonNormal">@color/colorPadOp</item>
+    </style>
+    <style name="Btn_Ot" parent="Btn">
+        <item name="colorButtonNormal">@color/colorPadOt</item>
+    </style>
 </resources>

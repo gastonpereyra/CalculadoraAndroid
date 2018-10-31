@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorPadNum">#ff1493</color>
+    <color name="colorPadOp">#00fa9a</color>
+    <color name="colorPadOt">#5486e6</color>
+    <color name="colorPadFont">#fff</color>
 </resources>
