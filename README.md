@@ -10,6 +10,8 @@ Una calculadora común, muy simple, permite hacer las operaciones mas comunes de 
 4. Apretar "=" y estará su resultado.
 ## Realizado con
 * Android Studio 3.3
+* Zelezny
+* ButterKnife 9.0rc1
 * JSDK 8
 ## Hecho por
 GASTON PEREYRA
