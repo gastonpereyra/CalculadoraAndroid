@@ -30,7 +30,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         configScreen();
+        if(savedInstanceState!=null) {
+            Screen.setText(savedInstanceState.getString("Screen"));
+            screenFull.setText(savedInstanceState.getString("screenFullExp"));
+            pantalla.setExpresion((String) screenFull.getText().toString());
+            pantalla.setVisor((String) Screen.getText().toString());
+        }
+    }
 
+    @Override
+    public void onSaveInstanceState (Bundle outState)
+    {
+        outState.putString("Screen", Screen.getText().toString());
+        outState.putString("screenFullExp", screenFull.getText().toString());
+
+        super.onSaveInstanceState(outState);
     }
 
     private void configScreen() {
@@ -42,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 input.hideSoftInputFromWindow(v.getWindowToken(), 0);
             }
         });
+        Screen.setKeyListener(null);
     }
 
     @OnClick({R.id.Pad_07, R.id.Pad_08, R.id.Pad_09, R.id.Pad_04, R.id.Pad_05, R.id.Pad_06,

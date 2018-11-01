@@ -16,7 +16,12 @@ public class Screen {
         this.expresion= "";
         this.visor= "";
     }
-
+    public void setExpresion(String nuevaExpresion) {
+        this.expresion= nuevaExpresion;
+    }
+    public void setVisor(String nuevoVisor) {
+        this.visor= nuevoVisor;
+    }
     public String getVisor() {
         return this.visor;
     }
