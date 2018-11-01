@@ -12,6 +12,7 @@ Una calculadora común, muy simple, permite hacer las operaciones mas comunes de 
 * Android Studio 3.3
 * Zelezny
 * ButterKnife 9.0rc1
-* JSDK 8
+* MathJS Android 0.2.1
+* JDK 8
 ## Hecho por
 GASTON PEREYRA

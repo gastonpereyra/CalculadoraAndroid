@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Calculadora Android</string>
     <string name="screen">Introduzca su Calculo</string>
+    <string name="startCalc"></string>
     <string name="btn_00">0</string>
     <string name="btn_01">1</string>
     <string name="btn_02">2</string>
