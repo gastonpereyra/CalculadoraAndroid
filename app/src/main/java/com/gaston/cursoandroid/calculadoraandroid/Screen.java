@@ -50,17 +50,19 @@ public class Screen {
             this.visor= "";
             this.expresion= "";
         }
-        if (!Tecla.esDOT(nuevoNUM)) {
-            this.visor += nuevoNUM;
-            this.expresion += nuevoNUM;
-        } else if (!this.decimal) {
-            if (this.visor.length() == 0) {
-                this.visor += "0";
-                this.expresion += "0";
+        if (this.visor.length()<16) {
+            if (!Tecla.esDOT(nuevoNUM)) {
+                this.visor += nuevoNUM;
+                this.expresion += nuevoNUM;
+            } else if (!this.decimal) {
+                if (this.visor.length() == 0) {
+                    this.visor += "0";
+                    this.expresion += "0";
+                }
+                this.visor += nuevoNUM;
+                this.expresion += nuevoNUM;
+                this.decimal = true;
             }
-            this.visor += nuevoNUM;
-            this.expresion += nuevoNUM;
-            this.decimal= true;
         }
     }
     private void ingresarOPE(String nuevoOPE) {
@@ -84,6 +86,7 @@ public class Screen {
             this.visor = Tecla.validarOPE(nuevoOPE);
         }
     }
+    // Borrar Ultimo caracter
     public void borrar() {
         int longitud= this.expresion.length();
         String ultimo= longitud>0 ? this.expresion.substring(longitud-1) : "";
@@ -109,12 +112,12 @@ public class Screen {
             }
         }
     }
-
+    // Borrar Todo
     public void limpiarPantalla() {
         this.visor= "";
         this.expresion= "";
     }
-
+    // Hacer el Calculo
     public void calcular() {
         MathJS math = new MathJS();
         int longitud = this.expresion.length();
