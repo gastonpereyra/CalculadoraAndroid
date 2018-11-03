@@ -33,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState!=null) {
             Screen.setText(savedInstanceState.getString("Screen"));
             screenFull.setText(savedInstanceState.getString("screenFullExp"));
-            pantalla.setExpresion((String) screenFull.getText().toString());
-            pantalla.setVisor((String) Screen.getText().toString());
+            pantalla.resetearScreen(Screen.getText().toString(), screenFull.getText().toString());
+            //pantalla.setExpresion((String) screenFull.getText().toString());
+            //pantalla.setVisor((String) Screen.getText().toString());
         }
     }
 
@@ -80,9 +81,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.Pad_mult:
             case R.id.Pad_div:
             case R.id.Pad_dot:
-                pantalla.onChangeVisor(valor);
-                Screen.setText(pantalla.getVisor());
-                screenFull.setText(pantalla.getExpresion());
+                pantalla.ingresarValor(valor);
+                pantalla.actualizarScreen(Screen, screenFull);
                 break;
         }
     }
@@ -91,14 +91,12 @@ public class MainActivity extends AppCompatActivity {
     public void onClickPadOt(View view) {
         switch (view.getId()) {
             case R.id.Pad_clear:
-                pantalla.onClickClear();
-                Screen.setText(pantalla.getVisor());
-                screenFull.setText(pantalla.getExpresion());
+                pantalla.limpiarPantalla();
+                pantalla.actualizarScreen(Screen, screenFull);
                 break;
             case R.id.Pad_equal:
-                pantalla.onClickEqual();
-                Screen.setText(pantalla.getVisor());
-                screenFull.setText(pantalla.getExpresion());
+                pantalla.calcular();
+                pantalla.actualizarScreen(Screen, screenFull);
                 break;
         }
     }
