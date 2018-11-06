@@ -20,5 +20,9 @@
     <string name="btn_back">DEL</string>
     <string name="btn_clear">C</string>
     <string name="btn_equal">=</string>
-
+    <string name="error_0">ERROR- No se pudo procesar</string>
+    <string name="error_1">ERROR- Tamaño Maximo de Digitos Alcanzado</string>
+    <string name="error_2">ERROR- No se pudo añadir punto decimal</string>
+    <string name="error_3">ERROR- No se pudo añadir operación</string>
+    <string name="error_4">ERROR- No se pudo añadir digito</string>
 </resources>

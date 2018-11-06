@@ -34,13 +34,21 @@ public class Screen {
         screenExpresion = this.expresion;
     }
     // Agregar Numeros y Operaciones
-    public void ingresarValor(String nuevoValor) {
-        if (Tecla.esNUM(nuevoValor))
-            this.ingresarNUM(nuevoValor);
-        else if (Tecla.esOPE(nuevoValor))
-            this.ingresarOPE(nuevoValor);
+    public int ingresarValor(String nuevoValor) {
+        int mensaje= 0;
+
+        if (Tecla.esNUM(nuevoValor)) {
+            mensaje= this.ingresarNUM(nuevoValor);
+        }
+        else if (Tecla.esOPE(nuevoValor)) {
+            mensaje= this.ingresarOPE(nuevoValor);
+        } else {
+            return 4;
+        }
+        return mensaje;
+
     }
-    private void ingresarNUM(String nuevoNUM) {
+    private int ingresarNUM(String nuevoNUM) {
         int longitud = this.expresion.length();
         String ultimo= longitud>0 ? this.expresion.substring(this.expresion.length()-1) : "";
 
@@ -54,6 +62,7 @@ public class Screen {
             if (!Tecla.esDOT(nuevoNUM)) {
                 this.visor += nuevoNUM;
                 this.expresion += nuevoNUM;
+                return 0;
             } else if (!this.decimal) {
                 if (this.visor.length() == 0) {
                     this.visor += "0";
@@ -62,29 +71,37 @@ public class Screen {
                 this.visor += nuevoNUM;
                 this.expresion += nuevoNUM;
                 this.decimal = true;
-            }
-        }
+                return 0;
+            } else
+                return 2;
+        } else
+            return 1;
     }
-    private void ingresarOPE(String nuevoOPE) {
+    private int ingresarOPE(String nuevoOPE) {
         int longitud= this.expresion.length();
         String ultimo= longitud>0 ? this.expresion.substring(this.expresion.length()-1) : "";
 
         if ( longitud == 0 && nuevoOPE.equals("-") ) {
             this.visor = Tecla.validarOPE(nuevoOPE);
             this.expresion += Tecla.validarOPE(nuevoOPE);
+            return 0;
         } else if ( longitud>0 && Tecla.esNUM(ultimo) ) {
             if (Tecla.esDOT(ultimo))
                 this.expresion= this.expresion.substring(0,longitud-1);
             this.visor= Tecla.validarOPE(nuevoOPE);
             this.expresion += Tecla.validarOPE(nuevoOPE);
             this.decimal= false;
+            return 0;
         } else if (longitud > 1 && Tecla.esOPE(ultimo)) {
             this.visor = Tecla.validarOPE(nuevoOPE);
             this.expresion = this.expresion.substring(0, longitud - 1) + Tecla.validarOPE(nuevoOPE);
+            return 0;
         } else if (Tecla.hayRES(ultimo)) {
             this.expresion = this.visor + Tecla.validarOPE(nuevoOPE);
             this.visor = Tecla.validarOPE(nuevoOPE);
-        }
+            return 0;
+        } else
+            return 3;
     }
     // Borrar Ultimo caracter
     public void borrar() {
@@ -112,7 +129,7 @@ public class Screen {
             }
         }
     }
-    // Borrar Todo
+    // Borrar
     public void limpiarPantalla() {
         this.visor= "";
         this.expresion= "";

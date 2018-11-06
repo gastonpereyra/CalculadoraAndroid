@@ -36,6 +36,7 @@
             android:textIsSelectable="true"
             android:drawableEnd="@drawable/btn_borrar_36dp"
             android:drawablePadding="16dp"
+            android:textSize="20sp"
             />
     </android.support.design.widget.TextInputLayout>
 

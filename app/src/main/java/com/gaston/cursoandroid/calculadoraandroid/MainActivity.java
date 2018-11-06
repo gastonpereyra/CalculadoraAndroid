@@ -2,6 +2,7 @@ package com.gaston.cursoandroid.calculadoraandroid;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -55,13 +56,13 @@ public class MainActivity extends AppCompatActivity {
         // Crear el controlador de la Pantalla
         pantalla = new Screen();
         // Deshabilitar Aparición Teclado Virtual
-        screen.setOnClickListener(new View.OnClickListener() {
+        /*screen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 InputMethodManager input = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 input.hideSoftInputFromWindow(v.getWindowToken(), 0);
             }
-        });
+        });*/
         // Deshabilitar Teclado Fisico
         screen.setKeyListener(null);
         // Habilitar el boton para borrar
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.Pad_mult, R.id.Pad_neg, R.id.Pad_sum, R.id.Pad_clear, R.id.Pad_equal})
     public void onClickPad(View view) {
         String valor = ((Button) view).getText().toString();
+        int mensaje= 0;
         switch (view.getId()) {
             case R.id.Pad_00:
             case R.id.Pad_01:
@@ -96,12 +98,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.Pad_07:
             case R.id.Pad_08:
             case R.id.Pad_09:
+            case R.id.Pad_dot:
             case R.id.Pad_sum:
             case R.id.Pad_neg:
             case R.id.Pad_mult:
             case R.id.Pad_div:
-            case R.id.Pad_dot:
-                pantalla.ingresarValor(valor);
+                mensaje= pantalla.ingresarValor(valor);
+                if ( mensaje != 0)
+                    mostrarMensaje(mensaje);
                 break;
             case R.id.Pad_clear:
                 pantalla.limpiarPantalla();
@@ -112,4 +116,26 @@ public class MainActivity extends AppCompatActivity {
         }
         pantalla.actualizarScreen(screen, screenFull);
     }
+    public void mostrarMensaje(int mensaje) {
+        int stringMensaje;
+        switch (mensaje) {
+            case 1:
+                stringMensaje= R.string.error_1;
+                break;
+            case 2:
+                stringMensaje= R.string.error_2;
+                break;
+            case 3:
+                stringMensaje= R.string.error_3;
+                break;
+            case 4:
+                stringMensaje= R.string.error_4;
+                break;
+            default:
+                stringMensaje= R.string.error_0;
+        }
+        Snackbar.make(main, stringMensaje, Snackbar.LENGTH_SHORT).show();
+
+    }
+
 }
